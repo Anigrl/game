@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    console.log("helo")
+    // first make a function to take computer choice within three things,
+
+    let choices = ["rock", "paper", "sicessor"]
+    console.log(choices)
+
+    let computerchoice = choices[Math.floor(Math.random() * 3)]
+    
+    let a, b, c;
+    a = choices[0];
+    b = choices[1];
+    c = choices[2];
+
+    let userchoice = prompt(`"enter your choice: \n1. click a for ${a}, \n2. click b for ${b}, \n3. click c for ${c}"`)
+    // console.log(userchoice)
+
+    if (userchoice == "a"){
+        userchoice = a;
+    }else if(userchoice == "b"){
+        userchoice = b;
+    }else if(userchoice =="c"){
+        userchoice = c;
+    }
+    
+    
+    const gamelogic = () => {
+        // tied possibilties
+        if ((computerchoice == "rock" && userchoice == a )|| (computerchoice == "paper" && userchoice == b )|| (computerchoice == "sicessor" && userchoice == c)) {
+            console.log("game has been tied")
+            
+        }
+        
+        // computer win possibliites
+        else if((computerchoice == "rock" && userchoice == c) ||(computerchoice == "paper" && userchoice == a) ||(computerchoice == "sicessor" && userchoice == b) ){
+            console.log("you lost. computer won!")
+        }
+        
+        // users win possiblities
+        else if((computerchoice == "rock" && userchoice == b) ||(computerchoice == "paper" && userchoice == c) ||(computerchoice == "sicessor" && userchoice == a) ){
+            console.log("you won!!")
+        }
+        
+        
+        
+        
+    }
+    
+    gamelogic();
+    console.log( "user has chossen:" + userchoice)
+    console.log("computer has choss:"+ computerchoice)
+
+
+
+    
+    
+    
+
+</script>
+
+</html>
