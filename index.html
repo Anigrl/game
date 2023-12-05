@@ -5,69 +5,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+
+
+    <style>
+        :root {
+            --background_color: #001F3F;
+            --accent_color: #FF851B;
+            --text-color: #FFFFFF;
+            --red: #c52525;
+            --darkgreen: #004F00;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            /* background-color: black; */
+            font-family: 'Shrikhand', serif;
+
+        }
+
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background: var(--background_color);
+
+        }
+
+        .header {
+            width: 100%;
+            height: 12vh;
+            background-color: var(--accent_color);
+            display: grid;
+            place-items: center;
+
+        }
+
+        .header h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 200;
+        }
+
+        .mainarea {
+            display: flex;
+            flex: 1;
+            background-color: white;
+            width: 100%;
+            height: 60vh;
+
+        }
+
+        .size {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .userarea {
+            background-color: red;
+            width: 50%;
+
+        }
+
+        .computerarea {
+            background-color: blue;
+            width: 50%;
+        }
+
+        img {
+
+            border: 1px solid black;
+            cursor: pointer;
+            width: 200px;
+            padding: 8px;
+
+
+        }
+
+        .score {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .score .items {
+            width: 100px;
+            height: 40px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="header">
+        <h2>Rock, Paper & Scissor</h2>
+    </div>
+    <div class="mainarea">
+        <div class=" size userarea">
+            <img src="people (1).png" alt="user">
+            <div class="score " div>
+                <div class="items"></div>
+                <div class="items"></div>
+                <div class="items"></div>
+
+            </div>
+        </div>
+        <div class=" size computerarea">
+            <img src="robot.png" alt="">
+            <div class="score " div>
+                <div class="items"></div>
+                <div class="items"></div>
+                <div class="items"></div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log("helo")
+            // first make a function to take computer choice within three things,
+
+            let choices = ["rock", "paper", "sicessor"]
+            console.log(choices)
+
+            let a, b, c;
+            a = choices[0];
+            b = choices[1];
+            c = choices[2];
+
+            let userpoint = 0;
+            let computerpoint = 0;
+
+            const gamelogic = () => {
+
+                let computerchoice = choices[Math.floor(Math.random() * 3)]
+                let userchoice = prompt(`"enter your choice: \n1. click a for ${a}, \n2. click b for ${b}, \n3. click c for ${c}"`)
+
+                if (userchoice == "a") {
+                    userchoice = a;
+                } else if (userchoice == "b") {
+                    userchoice = b;
+                } else if (userchoice == "c") {
+                    userchoice = c;
+                }
+
+                // your existing gamelogic code...
+
+                console.log("userpoint :" + userpoint)
+                console.log("computerpoint :" + computerpoint)
+
+                console.log("user has chosen:" + userchoice)
+                console.log("computer has chosen:" + computerchoice)
+
+            }
+
+            const restart = () => {
+                do {
+                    gamelogic()
+                }
+                while (userpoint < 3 && computerpoint < 3);
+
+                if (userpoint === 3) {
+                    alert("you have won the game!")
+                    console.log("you have won the game!")
+                } else if (computerpoint === 3) {
+                    alert("close but no cigar!")
+                    console.log("close but no cigar!")
+                }
+            }
+
+            // Call the functions or any other initialization code here if needed.
+            // gamelogic();
+            // restart();
+        });
+    </script>
+</body>
+
+
+
 
 </body>
-<script>
-    console.log("helo")
-    // first make a function to take computer choice within three things,
-
-    let choices = ["rock", "paper", "sicessor"]
-    console.log(choices)
-
-    let computerchoice = choices[Math.floor(Math.random() * 3)]
-    
-    let a, b, c;
-    a = choices[0];
-    b = choices[1];
-    c = choices[2];
-
-    let userchoice = prompt(`"enter your choice: \n1. click a for ${a}, \n2. click b for ${b}, \n3. click c for ${c}"`)
-    // console.log(userchoice)
-
-    if (userchoice == "a"){
-        userchoice = a;
-    }else if(userchoice == "b"){
-        userchoice = b;
-    }else if(userchoice =="c"){
-        userchoice = c;
-    }
-    
-    
-    const gamelogic = () => {
-        // tied possibilties
-        if ((computerchoice == "rock" && userchoice == a )|| (computerchoice == "paper" && userchoice == b )|| (computerchoice == "sicessor" && userchoice == c)) {
-            console.log("game has been tied")
-            
-        }
-        
-        // computer win possibliites
-        else if((computerchoice == "rock" && userchoice == c) ||(computerchoice == "paper" && userchoice == a) ||(computerchoice == "sicessor" && userchoice == b) ){
-            console.log("you lost. computer won!")
-        }
-        
-        // users win possiblities
-        else if((computerchoice == "rock" && userchoice == b) ||(computerchoice == "paper" && userchoice == c) ||(computerchoice == "sicessor" && userchoice == a) ){
-            console.log("you won!!")
-        }
-        
-        
-        
-        
-    }
-    
-    gamelogic();
-    console.log( "user has chossen:" + userchoice)
-    console.log("computer has choss:"+ computerchoice)
-
-
-
-    
-    
-    
-
-</script>
 
 </html>
