@@ -68,6 +68,7 @@
 
         console.log("helo")
         // accessiong buttons to select
+        const body = document.body;
         const userimg = document.querySelector("#userimg");
         const compimg = document.querySelector("#compimg");
 
@@ -171,11 +172,11 @@
                     } else if (rules[userchoice] === computerchoice) {
                         result = 'You won';
                         // Convert the current score to a number, increment, and update the textContent
-                        userscore.textContent = (parseInt(userscore.textContent, 10) + 1).toString();
+                        userscore.textContent = (parseInt(userscore.textContent, 10) + 1);
                     } else {
                         result = 'You lose';
                         // Convert the current score to a number, increment, and update the textContent
-                        computerscore.textContent = (parseInt(computerscore.textContent, 10) + 1).toString();
+                        computerscore.textContent = (parseInt(computerscore.textContent, 10) + 1);
                     }
 
                     console.log(result);
@@ -191,7 +192,6 @@
         }
 
         gamelogic()
-
 
 
 
