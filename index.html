@@ -6,116 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        :root {
-            --background_color: #001F3F;
-            --accent_color: #FF851B;
-            --text-color: #FFFFFF;
-            --red: #c52525;
-            --darkgreen: #004F00;
-
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            /* background-color: black; */
-            font-family: 'Shrikhand', serif;
-
-        }
-
-
-        body {
-            width: 100%;
-            height: 100vh;
-            background: var(--background_color);
-
-        }
-
-        .header {
-            width: 100%;
-            height: 12vh;
-            background-color: var(--accent_color);
-            display: grid;
-            place-items: center;
-
-        }
-
-        .header h2 {
-            font-size: 2.5rem;
-            color: var(--text-color);
-            font-weight: 200;
-        }
-
-        .mainarea {
-            display: flex;
-            flex: 1;
-            background-color: white;
-            width: 100%;
-            height: 60vh;
-
-        }
-
-        .size {
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .userarea {
-            background-color: red;
-            width: 50%;
-
-        }
-
-        .computerarea {
-            background-color: blue;
-            width: 50%;
-        }
-
-        img {
-
-            border: 1px solid black;
-            cursor: pointer;
-            width: 200px;
-            padding: 8px;
-            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-           border-radius: 1rem;
-
-        }
-
-        .score {
-            display: flex;
-            width: 100%;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .score .items {
-            width: 120px;
-            height: 40px;
-            border: 1px solid black;
-            border-radius: 6px;
-            cursor: pointer;
-            display: grid;
-            place-items: center;
-           
-        }
-        .items h1{
-            font-size: 1.3rem;
-            color: var(--text-color);
-            font-weight: 100;
-         
-        }
-    </style>
 </head>
 
 <body>
@@ -123,91 +20,182 @@
         <h2>Rock, Paper & Scissor</h2>
     </div>
     <div class="mainarea">
-        <div class=" size userarea">
-            <img src="people (1).png" alt="user">
-            <div class="score " div>
-                <div class="items"><h1>Rock</h1></div>
-                <div class="items"><h1>Paper</h1></div>
-                <div class="items"><h1>Sciessor</h1></div>
-                
-                
+        <div class=" size userarea" id="user">
+            <img id="userimg" src="people (1).png" alt="user">
+            <div class="selection " div>
+                <img class="choicebuttons" id="rock" src="fist.png" alt="rock">
+                <img class="choicebuttons" id="paper" src="hand-paper.png" alt="paper">
+
+                <img class="choicebuttons" id="scissor" src="scissors.png" alt="scissor">
+
+
+
             </div>
         </div>
-        <div class=" size computerarea">
-            <img src="robot.png" alt="">
-            <div class="score " div>
-                <div class="items"><h1>Rock</h1></div>
-                <div class="items"><h1>Paper</h1></div>
-                <div class="items"><h1>Sciessor</h1></div>      
+        <div class=" size computerarea" id="computer">
+            <img id="compimg" src="robot.png" alt="">
+            <div class="selection " div>
+
+                <img class="compbuttons" id="rockComp" src="fist.png">
+                <img class="compbuttons" id="paperComp" src="hand-paper.png">
+                <img class="compbuttons" id="scissorComp" src="scissors.png">
+
             </div>
 
         </div>
     </div>
 
+    <div class="rounddescription">
+        <p></p>
+
+    </div>
+    <div class="scoreboard">
+        <h2>score</h2>
+        <div class="score-box">
+            <div id="userScore">
+                <h5>user</h5>
+                <p id="userScoreCount">0</p>
+            </div>
+            <div id="computerScore">
+                <h5>computer</h5>
+                <p id="computerScoreCount">0</p>
+            </div>
+        </div>
+
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            console.log("helo")
-            // first make a function to take computer choice within three things,
 
-            let choices = ["rock", "paper", "sicessor"]
-            console.log(choices)
+        console.log("helo")
+        // accessiong buttons to select
+        const userimg = document.querySelector("#userimg");
+        const compimg = document.querySelector("#compimg");
 
-            let a, b, c;
-            a = choices[0];
-            b = choices[1];
-            c = choices[2];
+        const userRock = document.querySelector("#rock");
+        const userPaper = document.querySelector("#paper");
 
-            let userpoint = 0;
-            let computerpoint = 0;
+        const userScissor = document.querySelector("#scissor");
 
-            const gamelogic = () => {
+        const compRock = document.querySelector("#rockComp");
+        const compPaper = document.querySelector("#paperComp");
 
-                let computerchoice = choices[Math.floor(Math.random() * 3)]
-                let userchoice = prompt(`"enter your choice: \n1. click a for ${a}, \n2. click b for ${b}, \n3. click c for ${c}"`)
+        const compScissor = document.querySelector("#scissorComp");
+        console.log(userPaper, userRock, userScissor, compPaper, compRock)
 
-                if (userchoice == "a") {
-                    userchoice = a;
-                } else if (userchoice == "b") {
-                    userchoice = b;
-                } else if (userchoice == "c") {
-                    userchoice = c;
+        // console.log(choiceButtons)
+
+        // accesssing score card
+
+        const userscore = document.querySelector("#userScoreCount")
+        const computerscore = document.querySelector("#computerScoreCount")
+
+        const rounddescription = document.querySelector('.rounddescription');
+        const selection = document.querySelector('.selection');
+
+
+        let urls = {
+            "rock": userRock.src,
+            "paper": userPaper.src,
+            "scissor": userScissor.src
+        };
+
+        // logic to do when user clicks button to select
+        const gamelogic = () => {
+            let choices = ["rock", "paper", "scissor"];
+            let userchoice = '';
+
+            const choiceButtons = document.querySelectorAll(".choicebuttons")
+
+            choiceButtons.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    userchoice = choices[index];
+                    console.log("user has chosen: " + userchoice)
+                    userimg.src = urls[item.id];
+
+                    item.classList.toggle('accentColor');
+                    selection.classList.toggle('pointerEvents');
+                    console.log(selection)
+
+                    setTimeout(() => {
+                        // userimg.src = 'http://127.0.0.1:5500/people%20(1).png';
+
+                        determineWinner()
+                        setTimeout(() => {
+                            item.classList.toggle('accentColor');
+                            // selection.classList.toggle('pointerEvents');
+
+
+                        }, 700);
+
+                    }, 100);
+
+                    console.log(item)
+
+                })
+
+            })
+
+            function determineWinner() {
+                let computerchoice = choices[Math.floor(Math.random() * 3)];
+                if (computerchoice === choices[0]) {
+                    compimg.src = urls['rock'];
+                } else if (computerchoice === choices[1]) {
+                    compimg.src = urls['paper'];
+
+                } else if (computerchoice === choices[2]) {
+                    compimg.src = urls['scissor'];
                 }
 
-                // your existing gamelogic code...
+                console.log("computer choic is: " + computerchoice)
+                setTimeout(() => {
 
-                console.log("userpoint :" + userpoint)
-                console.log("computerpoint :" + computerpoint)
+                    chossewinner()
+                    selection.classList.toggle('pointerEvents');
 
-                console.log("user has chosen:" + userchoice)
-                console.log("computer has chosen:" + computerchoice)
+
+                }, 800);
+
+                function chossewinner() {
+                    userimg.src = 'http://127.0.0.1:5500/people%20(1).png';
+                    compimg.src = 'http://127.0.0.1:5500/robot.png';
+
+                    const rules = {
+                        'rock': 'scissor',
+                        'paper': 'rock',
+                        'scissor': 'paper'
+                    };
+                    let result = "";
+
+                    if (userchoice === computerchoice) {
+                        result = 'round tied';
+                    } else if (rules[userchoice] === computerchoice) {
+                        result = 'You won';
+                        // Convert the current score to a number, increment, and update the textContent
+                        userscore.textContent = (parseInt(userscore.textContent, 10) + 1).toString();
+                    } else {
+                        result = 'You lose';
+                        // Convert the current score to a number, increment, and update the textContent
+                        computerscore.textContent = (parseInt(computerscore.textContent, 10) + 1).toString();
+                    }
+
+                    console.log(result);
+                    rounddescription.textContent = result;
+
+                    setTimeout(() => {
+                        rounddescription.textContent = '';
+
+                    }, 900)
+                }
 
             }
+        }
 
-            const restart = () => {
-                do {
-                    gamelogic()
-                }
-                while (userpoint < 3 && computerpoint < 3);
+        gamelogic()
 
-                if (userpoint === 3) {
-                    alert("you have won the game!")
-                    console.log("you have won the game!")
-                } else if (computerpoint === 3) {
-                    alert("close but no cigar!")
-                    console.log("close but no cigar!")
-                }
-            }
 
-            // Call the functions or any other initialization code here if needed.
-            // gamelogic();
-            // restart();
-        });
+
+
     </script>
-</body>
-
-
-
-
 </body>
 
 </html>

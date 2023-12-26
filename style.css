@@ -1,0 +1,194 @@
+:root {
+  --background_color: #001F3F;
+  --accent_color: #FF851B;
+  --text-color: #FFFFFF;
+  --red: #c52525;
+  --darkgreen: #004F00;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* background-color: black; */
+  font-family: 'Shrikhand', serif;
+
+}
+
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: var(--background_color);
+
+}
+
+.header {
+  width: 100%;
+  height: 12vh;
+  /* background-color: var(--accent_color); */
+  display: grid;
+  place-items: center;
+
+}
+
+.header h2 {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 200;
+}
+
+.mainarea {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex: 1;
+  /* background-color: white; */
+  width: 100%;
+  height: 50vh;
+
+}
+
+.size {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9px;
+  gap: 3rem;
+}
+
+.userarea img {
+  background-color: rgb(174, 0, 255);
+
+
+  /* width: 50%; */
+
+}
+
+.computerarea img {
+  background-color: rgb(0, 255, 98);
+
+  /* width: 50%; */
+}
+
+img {
+
+
+  border: 1px solid black;
+  cursor: pointer;
+  width: 200px;
+  padding: 8px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+
+}
+
+.selection {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.selection img {
+
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  /* font-size: 1.1rem; */
+  overflow: hidden;
+
+}
+.pointerEvents{
+  pointer-events: none;
+}
+
+.selection .choicebuttons {
+  background-color: rgb(208, 157, 231)
+}
+
+.selection .compbuttons {
+  background-color: rgb(160, 231, 157);
+  pointer-events: none;
+  
+}
+
+.selection .accentColor{
+  background-color: var(--accent_color);
+}
+ 
+
+.rounddescription{
+  width: 300px;
+  height: 50px;
+  background-color: white;
+  margin: 1rem auto;
+  color: black;
+   border-radius: 5px;
+  display: grid;
+  place-items: center;
+  
+}
+
+
+
+.scoreboard {
+  /* background-color: white; */
+  width: 180px;
+  /* height: 300px; */
+  /* border: 2ps solid rgb(255, 255, 255); */
+  margin: 0 auto;
+  margin-top: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.scoreboard .score-box {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1;
+
+}
+
+.scoreboard h2 {
+  background-color: rgba(0, 0, 0, 0.062);
+  color: rgb(243, 239, 9);
+  font-size: 1.2rem;
+}
+
+#userScore {
+  background-color: rgb(0, 255, 98);
+  /* background-color: #FF851B; */
+  width: 50%;
+}
+
+#computerScore {
+
+  background-color: rgb(174, 0, 255);
+
+
+  width: 50%;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 20px #00ff00;
+  }
+
+  50% {
+    box-shadow: 0 0 40px #00ff00;
+  }
+
+  100% {
+    box-shadow: 0 0 20px #00ff00;
+  }
+}
