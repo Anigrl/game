@@ -139,12 +139,12 @@
             function determineWinner() {
                 let computerchoice = choices[Math.floor(Math.random() * 3)];
                 if (computerchoice === choices[0]) {
-                    compimg.src = urls['rock'];
+                    compimg.src = urls["rock"];
                 } else if (computerchoice === choices[1]) {
-                    compimg.src = urls['paper'];
+                    compimg.src = urls["paper"];
 
                 } else if (computerchoice === choices[2]) {
-                    compimg.src = urls['scissor'];
+                    compimg.src = urls["scissor"];
                 }
 
                 console.log("computer choic is: " + computerchoice)
@@ -157,8 +157,8 @@
                 }, 800);
 
                 function chossewinner() {
-                    userimg.src = 'http://127.0.0.1:5500/people%20(1).png';
-                    compimg.src = 'http://127.0.0.1:5500/robot.png';
+                    userimg.src =  'people (1).png';
+                    compimg.src = 'robot.png';
 
                     const rules = {
                         'rock': 'scissor',
